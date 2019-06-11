@@ -1,6 +1,6 @@
-# Stanford-car Recognition
+# Stanford-cars classification
 
-In this repository, I'm making a car classifier using the Stanford car dataset, which contains 196 classes(including make and model). This repository also contains the checkpoint of 11 models trained on Stanford-car dataset with high accuracy. You can use it as pretrained weight then transfer learning on others dataset.
+In this repository, I'm making a cars classifier using the Stanford cars dataset, which contains 196 classes(including make and model). This repository also contains the checkpoint of 11 models trained on Stanford-cars dataset with high accuracy. You can use it as pretrained weights then transfer learning on others dataset.
 
 ## Environments
 - Ubuntu 16.04 LTS
@@ -19,7 +19,7 @@ Jonathan Krause, Michael Stark, Jia Deng, Li Fei-Fei<br />
 196 classes<br />
 Trainset: 8144 images<br />
 Testset: 8041 images<br />
-Some images and class name in training set:
+Some images in training set:
 <p align="center">
   <img src="https://github.com/dungnb1333/stanford-cars-classification/raw/master/images/imshow.png">
 </p>
@@ -44,7 +44,6 @@ Useful tricks I used for training:
 - Mixup [[paper]](https://arxiv.org/abs/1710.09412)
 - Cross-validation 5 folds
 
-To train network, run:<br />
 $ **python train.py --network network --gpu gpu_id --epochs number_of_epochs --multiprocessing False/True**<br />
 You can choose any network in list:<br />
 - VGG16, VGG19
@@ -58,7 +57,7 @@ You can choose any network in list:<br />
 For example to train MobileNetV2 on 200 epochs:<br />
 $ **python train.py --network MobileNetV2 --gpu 0 --epochs 200 --multiprocessing False**<br />
 
-I used the optimal parameters (input size, batch_size) for my hardware (1x1080 Ti 12GB, RAM 32GB, CPU 12 Core), you can modify to suit your hardware in file [config.py](https://github.com/dungnb1333/stanford-cars-classification/blob/master/config.py).
+I used the optimal parameters (input size, batch_size) for my hardware (1x1080 Ti 12GB, RAM 32GB, CPU 12 Core), you can modify [config.py](https://github.com/dungnb1333/stanford-cars-classification/blob/master/config.py) to suit your hardware.
 
 I saved training log of 11 models on each fold in [logs](https://github.com/dungnb1333/stanford-cars-classification/tree/master/logs)
 
@@ -71,7 +70,7 @@ To enhance the result, I applied 12 crops for validation and test prediction, ac
 
 To evaluate network, run:<br />
 $ **python evaluate.py --network network --gpu gpu_id --multi_crops True/False**<br />
-For example to evaluate MobileNetV2 with 12 crops:<br />
+For example:<br />
 $ **python evaluate.py --network MobileNetV2 --gpu 0 --multi_crops True**<br />
 
 To generate submission for each model, run:<br />
@@ -88,6 +87,7 @@ I just tried a few cases to ensemble 11 models, you can try other ratios, maybe 
 
 ## Demo on image
 
+Download checkpoint of 11 models in [link](https://www.dropbox.com/sh/jv7dbd5ksj2exun/AAATZFgaxe7rMEjv10PG1BYha?dl=0) then put into folder [checkpoints]()
 $ **python demo.py --network network --gpu gpu_id --image_path path --imshow True/False**<br />
-Example:<br />
+For example:<br />
 $ **python demo.py --network ResNeXt101 --gpu 0 --image_path images/samples/02381.jpg --imshow True**<br />
