@@ -61,6 +61,10 @@ I used the optimal parameters (input size, batch_size) for my hardware (1x1080 T
 
 I saved training log of 11 models on each fold in [logs](https://github.com/dungnb1333/stanford-cars-classification/tree/master/logs)
 
+## Checkpoint
+
+Download checkpoint of 11 models in [link](https://www.dropbox.com/sh/jv7dbd5ksj2exun/AAATZFgaxe7rMEjv10PG1BYha?dl=0) then put into [checkpoints](https://github.com/dungnb1333/stanford-cars-classification/tree/master/checkpoints) to evaluate model, generate submission or demo on image.
+
 ## Evaluate models:
 
 To enhance the result, I applied 12 crops for validation and test prediction, accuracy of single model is ensemble of 12 crops and 5 folds. For example with input shape of network is 224x224x3:<br />
@@ -87,7 +91,6 @@ I just tried a few cases to ensemble 11 models, you can try other ratios, maybe 
 
 ## Demo on image
 
-Download checkpoint of 11 models in [link](https://www.dropbox.com/sh/jv7dbd5ksj2exun/AAATZFgaxe7rMEjv10PG1BYha?dl=0) then put into folder [checkpoints]()
 $ **python demo.py --network network --gpu gpu_id --image_path path --imshow True/False**<br />
 For example:<br />
 $ **python demo.py --network ResNeXt101 --gpu 0 --image_path images/samples/02381.jpg --imshow True**<br />
