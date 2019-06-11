@@ -104,6 +104,8 @@ if __name__ == '__main__':
 
     if not os.path.exists('submission'):
         os.makedirs('submission')
+    if not os.path.exists('data'):
+        os.makedirs('data')
 
     print('Load images to dictionary ...')
     test_dict = {}
@@ -122,6 +124,8 @@ if __name__ == '__main__':
         for type in range(12):
             ptest_ensemble += model.predict_generator(generator = PredictGenerator(conf=car.conf, number_of_images = TEST_NUMS, dict=test_dict, batch_size=64, augtype=type), verbose=1)
     ptest_ensemble /= float(12*car.conf.folds)
+
+    np.save('data/%s.npy'%args.network, ptest_ensemble)
     
     ypredict = np.argmax(ptest_ensemble, axis=1) + 1
     submission_file = open('submission/%s.txt'%args.network, 'w')
