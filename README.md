@@ -101,3 +101,6 @@ I just tried a few cases to ensemble 11 models, you can try others ratio, maybe 
 $ **python demo.py --network network --gpu gpu_id --image_path path --imshow True/False**<br />
 For example:<br />
 $ **python demo.py --network ResNeXt101 --gpu 0 --image_path images/samples/02381.jpg --imshow True**<br />
+<p align="center">
+  <img src="https://github.com/dungnb1333/stanford-cars-classification/raw/master/images/demo.png">
+</p>
