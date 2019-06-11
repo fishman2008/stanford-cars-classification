@@ -78,14 +78,18 @@ For example:<br />
 $ **python evaluate.py --network MobileNetV2 --gpu 0 --multi_crops True**<br />
 
 To generate submission for each model, run:<br />
-$ **python predict.py --network network --gpu gpu_id**<br />
-Output is network.txt in folder [submission](https://github.com/dungnb1333/stanford-cars-classification/tree/master/submission)<br />
+$ **python predict.py --network network --gpu gpu_id**
+
+Output is network.txt in folder [submission](https://github.com/dungnb1333/stanford-cars-classification/tree/master/submission)
 
 Accuracy and size of 11 models:<br />
 <p align="center">
   <img src="https://github.com/dungnb1333/stanford-cars-classification/raw/master/images/model_accuracy.png">
 </p>
-I ensemble some models with suitable ratios: result = sum(weight x model) / sum(weight)
+
+I ensemble some models with suitable ratios: result = sum(weight x model) / sum(weight).<br />
+$ **python ensemble.py**
+
 
 My final result is **0.945529**, higher than [state-of-the-art stanford cars 2018](https://paperswithcode.com/sota/fine-grained-image-classification-on-stanford) and almost equal to [state-of-the-art image classification on Stanford Cars 2019](https://paperswithcode.com/sota/image-classification-on-stanford-cars) (**0.947**).
 
