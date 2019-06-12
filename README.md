@@ -92,7 +92,7 @@ Accuracy and size of 11 models:<br />
 I ensemble 11 models with suitable ratios: result = sum(weight x model) / sum(weight).<br />
 $ **python ensemble.py**<br />
 
-My final result is [**0.945529**](https://github.com/dungnb1333/stanford-cars-classification/blob/master/submission/Ensemble.txt), higher than [state-of-the-art stanford cars 2018](https://paperswithcode.com/sota/fine-grained-image-classification-on-stanford) and almost equal to [state-of-the-art image classification on stanford cars 2019](https://paperswithcode.com/sota/image-classification-on-stanford-cars) (**0.947**).
+My final result is [**0.945529**](https://github.com/dungnb1333/stanford-cars-classification/blob/master/submission/Ensemble.txt), higher accuracy than [state-of-the-art stanford cars 2018](https://paperswithcode.com/sota/fine-grained-image-classification-on-stanford) and almost equal to [state-of-the-art image classification on stanford cars 2019](https://paperswithcode.com/sota/image-classification-on-stanford-cars) (**0.947**).
 
 I just tried a few cases to ensemble 11 models, you can try others ratio, maybe lucky to get higher accuracy than 0.945529.
 
