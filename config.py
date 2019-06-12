@@ -57,7 +57,7 @@ class CarConfig():
         if  self.conf.network == 'InceptionV3':
             self.conf.size = 416
             self.conf.tmp_size = int(1.25*self.conf.size)
-            self.conf.pool = 'GlobalMaxPooling2D'
+            self.conf.pool = 'GlobalAveragePooling2D'
             self.conf.batch_size = 24
 
         if  self.conf.network == 'InceptionResNetV2':
