@@ -104,10 +104,10 @@ if __name__ == '__main__':
     prob = predict[idx]
     name = class_names[idx][0]
 
-    print('ClassID: %d\nName: %s\nProb: %f'%(class_id, name, prob))
+    print('ClassID: %d\nName: %s\Confidence: %f'%(class_id, name, prob))
     
     if args.imshow:
         fig = plt.figure()
         plt.imshow(cv2.cvtColor(img_org, cv2.COLOR_BGR2RGB))
-        fig.suptitle('ClassID: %d\nName: %s\nProb: %f'%(class_id, name, prob))
+        fig.suptitle('%s    Confidence: %f'%(name, prob))
         plt.show()
