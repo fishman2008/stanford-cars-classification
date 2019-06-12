@@ -80,7 +80,9 @@ $ **python evaluate.py --network MobileNetV2 --gpu 0 --multi_crops True**<br />
 To generate submission for each model, run:<br />
 $ **python predict.py --network network --gpu gpu_id**
 
-Output is network.txt in folder [submission](https://github.com/dungnb1333/stanford-cars-classification/tree/master/submission)
+Output is network.txt in folder [submission](https://github.com/dungnb1333/stanford-cars-classification/tree/master/submission) and raw output network.npy in folder [data](https://github.com/dungnb1333/stanford-cars-classification/tree/master/data)
+
+You can summit your result at [stanford-cars evaluation server](http://imagenet.stanford.edu/internal/car196/submission/submission.php).
 
 Accuracy and size of 11 models:<br />
 <p align="center">
@@ -92,7 +94,7 @@ Accuracy and size of 11 models:<br />
 I ensemble 11 models with suitable ratios: result = sum(weight x model) / sum(weight).<br />
 $ **python ensemble.py**<br />
 
-My final result is [**0.945529**](https://github.com/dungnb1333/stanford-cars-classification/blob/master/submission/Ensemble.txt), higher than [state-of-the-art stanford cars 2018](https://paperswithcode.com/sota/fine-grained-image-classification-on-stanford) and almost equal to [state-of-the-art image classification on stanford cars 2019](https://paperswithcode.com/sota/image-classification-on-stanford-cars) (**0.947**).
+My final result is [**0.945529**](https://github.com/dungnb1333/stanford-cars-classification/blob/master/submission/Ensemble.txt), higher accuracy than [state-of-the-art stanford cars 2018](https://paperswithcode.com/sota/fine-grained-image-classification-on-stanford) and almost equal to [state-of-the-art image classification on stanford cars 2019](https://paperswithcode.com/sota/image-classification-on-stanford-cars) (**0.947**).
 
 I just tried a few cases to ensemble 11 models, you can try others ratio, maybe lucky to get higher accuracy than 0.945529.
 

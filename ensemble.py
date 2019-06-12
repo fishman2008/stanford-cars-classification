@@ -3,7 +3,7 @@ import pandas as pd
 import os
 import numpy as np
 
-mydict = {
+models_and_weights = {
     'EfficientNetB0':       0.0037,
     'EfficientNetB1':       0.0212,
     'EfficientNetB2':       0.0938,
@@ -23,7 +23,7 @@ if __name__ == '__main__':
     car = CarConfig()
 
     xtest_ensemble = np.zeros((TEST_NUMS, car.conf.class_nums), dtype=np.float64)
-    for mset, weight in mydict.items():
+    for mset, weight in models_and_weights.items():
         xtest_ensemble += weight*np.load('data/%s.npy'%mset)
     xtest_ensemble /= float(car.conf.folds)
 
