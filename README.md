@@ -82,7 +82,7 @@ $ **python predict.py --network network --gpu gpu_id**
 
 Output is network.txt in folder [submission](https://github.com/dungnb1333/stanford-cars-classification/tree/master/submission) and raw output in network.npy in folder [data](https://github.com/dungnb1333/stanford-cars-classification/tree/master/data)
 
-You can summit your result in [stanford-cars evaluation server](http://imagenet.stanford.edu/internal/car196/submission/submission.php).
+You can summit your result at [stanford-cars evaluation server](http://imagenet.stanford.edu/internal/car196/submission/submission.php).
 
 Accuracy and size of 11 models:<br />
 <p align="center">
