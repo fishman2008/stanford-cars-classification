@@ -95,7 +95,7 @@ Accuracy and size of 13 models:<br />
 Final result [**0.9462**](https://github.com/dungnb1333/stanford-cars-classification/blob/master/submission/Ensemble.txt) is ensemble of some models with suitable ratios: result = sum(weight x model) / sum(weight).<br />
 $ **python ensemble.py**<br />
 
-I just tried a few cases, you can try with other ratios and other models, maybe lucky to get higher accuracy than 0.9462.
+I just tried a few cases, you can try with other ratios and other models to get higher accuracy than 0.9462.
 
 ## Demo on image
 
