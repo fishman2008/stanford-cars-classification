@@ -108,18 +108,22 @@ $ **python demo.py --network ResNeXt101 --gpu 0 --image_path images/samples/0238
 
 ## Transfer learning to other datasets
 
-from models import Car_Model<br />
-from config import CarConfig<br />
-from keras.layers import *<br />
-from keras.models import Model<br />
-network = 'ResNeXt101'<br />
+```python
+from models import Car_Model
+from config import CarConfig
+from keras.layers import *
+from keras.models import Model
 
-car = CarConfig()<br />
-car.update(network)<br />
-base_model = Car_Model(base_model_name = car.conf.network, size = car.conf.size, pool = car.conf.pool, class_nums = car.conf.class_nums)<br />
-base_model.load_weights('checkpoints/%s_weight_fold4.hdf5'%car.conf.network)<br />
-new_model = Model(inputs=Input(shape=(new_size, new_size, 3)), outputs=base_model.get_layer('dropout').output)<br />
-new_model.add(Dense(classes=10))<br />
-new_model.add(Activation('softmax'))<br />
+network = 'ResNeXt101'
 
-After that you will get a usual Keras model which you can train using .fit and .fit_generator methods.<br />
+car = CarConfig()
+car.update(network)
+base_model = Car_Model(base_model_name = car.conf.network, size = car.conf.size, pool = car.conf.pool, class_nums = car.conf.class_nums)
+base_model.load_weights('checkpoints/%s_weight_fold4.hdf5'%car.conf.network)
+new_model = Model(inputs=Input(shape=(new_size, new_size, 3)), outputs=base_model.get_layer('dropout').output)
+new_model.add(Dense(10))
+new_model.add(Activation('softmax'))
+new_model.summary()
+```
+
+After that you will get a usual Keras model which you can train using `.fit` and `.fit_generator` methods.
