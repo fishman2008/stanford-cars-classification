@@ -29,12 +29,12 @@ Distribution of training set:
   <img src="https://github.com/dungnb1333/stanford-cars-classification/raw/master/images/distribution.png">
 </p>
 Min: 24 images/class , max: 68 images/class , mean: 41 images/class, so this dataset is quite balanced.<br /><br />
-
-Quick download datasets via command line:<br />
-$ **bash quick_download.sh**<br />
-Cross-validation 5 folds<br />
-$ **python prepare.py**<br />
-
+```
+Quick download datasets via command line:
+$ bash quick_download.sh
+Cross-validation 5 folds
+$ python prepare.py
+```
 ## Training
 
 Using pre-trained weights on imagenet dataset, with transfer learning to train the model. All layers will be fine tuned and the last fully connected layer will be replaced entirely.
