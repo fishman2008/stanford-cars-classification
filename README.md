@@ -30,12 +30,10 @@ Distribution of training set:
 </p>
 Min: 24 images/class , max: 68 images/class , mean: 41 images/class, so this dataset is quite balanced.<br /><br />
 
-```
-Quick download datasets via command line:
-$ bash quick_download.sh
-Cross-validation 5 folds
-$ python prepare.py
-```
+Quick download datasets via command line:<br />
+$ **bash quick_download.sh**<br />
+Cross-validation 5 folds<br />
+$ **python prepare.py**<br />
 
 ## Training
 
@@ -107,25 +105,3 @@ $ **python demo.py --network ResNeXt101 --gpu 0 --image_path images/samples/0238
 <p align="center">
   <img src="https://github.com/dungnb1333/stanford-cars-classification/raw/master/images/demo.png">
 </p>
-
-## Transfer learning to other datasets
-
-```python
-from models import Car_Model
-from config import CarConfig
-from keras.layers import *
-from keras.models import Model
-
-network = 'ResNeXt101'
-
-car = CarConfig()
-car.update(network)
-base_model = Car_Model(base_model_name = car.conf.network, size = car.conf.size, pool = car.conf.pool, class_nums = car.conf.class_nums)
-base_model.load_weights('checkpoints/%s_weight_fold4.hdf5'%car.conf.network)
-new_model = Model(inputs=Input(shape=(new_size, new_size, 3)), outputs=base_model.get_layer('dropout').output)
-new_model.add(Dense(10))
-new_model.add(Activation('softmax'))
-new_model.summary()
-```
-
-After that you will get a usual Keras model which you can train using `.fit` and `.fit_generator` methods.

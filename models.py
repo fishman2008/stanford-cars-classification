@@ -133,12 +133,3 @@ def batch_preprocess_input(x_batch, network):
         return None
 
     return x_batch
-
-def transfer_model(conf, weight, new_size, num_classes, activation):
-    input_tensor = Input(shape=(new_size, new_size, 3))
-    base_model = Car_Model(base_model_name = conf.network, size = conf.size, pool = conf.pool, class_nums = conf.class_nums)
-    model.load_weights(weight)
-    x = model.layers[-2].output(input_tensor)
-    output_tensor = Dense(num_classes, activation=activation)(x)
-    model = Model(inputs=input_tensor, outputs=output_tensor)
-    return model
