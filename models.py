@@ -91,9 +91,9 @@ def Car_Model(base_model_name = 'MobileNetV2', size = 224, pool = 'GlobalMaxPool
     else:
         return None
 
-    x = Dense(1024, name='last_dense')(x)
+    x = Dense(1024)(x)
     x = Activation('relu')(x)
-    x = Dropout(0.5)(x)
+    x = Dropout(0.5,name='dropout')(x)
 
     output_tensor = Dense(class_nums, activation=activation_name)(x)
     model = Model(inputs=input_tensor, outputs=output_tensor)
