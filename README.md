@@ -1,6 +1,7 @@
 # Stanford-cars classification
 
-In this repository, I'm making a cars classifier using the Stanford cars dataset, which contains 196 classes(including make and model). This repository also contains the checkpoint of 11 models trained on Stanford-cars dataset with high accuracy. You can use it as pretrained weights then transfer learning on others dataset.
+In this repository, I'm making a cars classifier using the Stanford cars dataset, which contains 196 classes(including make and model). This repository also contains the checkpoint of 13 models trained on Stanford-cars dataset with high accuracy. You can use it as pretrained weights then transfer learning on others dataset.<br />
+Accuracy of ensemble some models in this repository is [**0.9461**](https://github.com/dungnb1333/stanford-cars-classification/blob/master/submission/Ensemble.txt), higher accuracy than [state-of-the-art stanford cars 2018](https://paperswithcode.com/sota/fine-grained-image-classification-on-stanford) and almost equal to [state-of-the-art image classification on stanford cars 2019](https://paperswithcode.com/sota/image-classification-on-stanford-cars) (**0.947**)
 
 ## Environments
 - Ubuntu 16.04 LTS
@@ -21,7 +22,7 @@ Trainset: 8144 images<br />
 Testset: 8041 images<br />
 Some images in training set:
 <p align="center">
-  <img src="https://github.com/dungnb1333/stanford-cars-classification/raw/master/images/imshow.png">
+  <img src="https://github.com/dungnb1333/stanford-cars-classification/raw/master/images/train_samples.png">
 </p>
 Distribution of training set:
 <p align="center">
@@ -59,11 +60,11 @@ $ **python train.py --network MobileNetV2 --gpu 0 --epochs 200 --multiprocessing
 
 I used the optimal parameters (input size, batch_size) for my hardware (1x1080 Ti 12GB, RAM 32GB, CPU 12 Core), you can modify [config.py](https://github.com/dungnb1333/stanford-cars-classification/blob/master/config.py) to suit your hardware.
 
-I saved training log of 11 models on each fold in [logs](https://github.com/dungnb1333/stanford-cars-classification/tree/master/logs)
+I saved training log of 13 models on each fold in [logs](https://github.com/dungnb1333/stanford-cars-classification/tree/master/logs)
 
 ## Checkpoint
 
-Download checkpoint of 11 models in [link](https://www.dropbox.com/sh/jv7dbd5ksj2exun/AAATZFgaxe7rMEjv10PG1BYha?dl=0) then put into [checkpoints](https://github.com/dungnb1333/stanford-cars-classification/tree/master/checkpoints) to evaluate model, generate submission or demo on image.
+Download checkpoint of 13 models in [link](https://www.dropbox.com/sh/jv7dbd5ksj2exun/AAATZFgaxe7rMEjv10PG1BYha?dl=0) then put into [checkpoints](https://github.com/dungnb1333/stanford-cars-classification/tree/master/checkpoints) to evaluate model, generate submission or demo on image.
 
 ## Evaluate models:
 
@@ -84,19 +85,17 @@ Output is network.txt in folder [submission](https://github.com/dungnb1333/stanf
 
 You can summit your result at [stanford-cars evaluation server](http://imagenet.stanford.edu/internal/car196/submission/submission.php).
 
-Accuracy and size of 11 models:<br />
+Accuracy and size of 13 models:<br />
 <p align="center">
   <img src="https://github.com/dungnb1333/stanford-cars-classification/raw/master/images/model_accuracy.png">
 </p>
 
 ## Ensemble multi-models
 
-I ensemble 11 models with suitable ratios: result = sum(weight x model) / sum(weight).<br />
+I ensemble 7 models with suitable ratios: result = sum(weight x model) / sum(weight).<br />
 $ **python ensemble.py**<br />
 
-My final result is [**0.945529**](https://github.com/dungnb1333/stanford-cars-classification/blob/master/submission/Ensemble.txt), higher accuracy than [state-of-the-art stanford cars 2018](https://paperswithcode.com/sota/fine-grained-image-classification-on-stanford) and almost equal to [state-of-the-art image classification on stanford cars 2019](https://paperswithcode.com/sota/image-classification-on-stanford-cars) (**0.947**).
-
-I just tried a few cases to ensemble 11 models, you can try others ratio, maybe lucky to get higher accuracy than 0.945529.
+My final result is [**0.9461**](https://github.com/dungnb1333/stanford-cars-classification/blob/master/submission/Ensemble.txt). I just tried a few cases to ensemble 13 models, you can try others ratio, maybe lucky to get higher accuracy than 0.9461.
 
 ## Demo on image
 
