@@ -64,7 +64,7 @@ I saved training log of 13 models on each fold in [logs](https://github.com/dung
 
 ## Checkpoint
 
-Download checkpoint of 13 models in [link](https://www.dropbox.com/sh/jv7dbd5ksj2exun/AAATZFgaxe7rMEjv10PG1BYha?dl=0) then put into [checkpoints](https://github.com/dungnb1333/stanford-cars-classification/tree/master/checkpoints) to evaluate model, generate submission or demo on image.
+Download checkpoint of 13 models in [link](https://www.dropbox.com/sh/jv7dbd5ksj2exun/AAATZFgaxe7rMEjv10PG1BYha?dl=0) then put into folder [checkpoints](https://github.com/dungnb1333/stanford-cars-classification/tree/master/checkpoints) to evaluate model, generate submission or demo on image.
 
 ## Evaluate models:
 
@@ -102,6 +102,7 @@ I just tried a few cases, you can try with other ratios and other models to get 
 $ **python demo.py --network network --gpu gpu_id --image_path path --imshow True/False**<br />
 For example:<br />
 $ **python demo.py --network ResNeXt101 --gpu 0 --image_path images/samples/02381.jpg --imshow True**<br />
+
 <p align="center">
   <img src="https://github.com/dungnb1333/stanford-cars-classification/raw/master/images/demo.png">
 </p>
