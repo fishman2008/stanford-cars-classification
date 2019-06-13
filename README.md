@@ -1,6 +1,6 @@
 # Stanford-cars classification
 
-In this repository, I'm making a cars classifier using the Stanford cars dataset, which contains 196 classes(including make and model). This repository also contains the checkpoint of 13 models trained on Stanford-cars dataset with high accuracy. You can use it as pretrained weights then transfer learning on others dataset.<br />
+In this repository, I'm making a cars classifier using the Stanford cars dataset, which contains 196 classes(including make and model). This repository also contains the checkpoint of 13 models trained on Stanford-cars dataset with high accuracy. You can use it as pretrained weights then transfer learning to other dataset.<br />
 Ensemble of some models in this repository can achieve accuracy [**0.9462**](https://github.com/dungnb1333/stanford-cars-classification/blob/master/submission/Ensemble.txt), higher accuracy than [state-of-the-art stanford cars 2018](https://paperswithcode.com/sota/fine-grained-image-classification-on-stanford) (**0.945**) and nearly [state-of-the-art image classification on stanford cars 2019](https://paperswithcode.com/sota/image-classification-on-stanford-cars) (**0.947**)
 
 ## Environments
@@ -105,3 +105,21 @@ $ **python demo.py --network ResNeXt101 --gpu 0 --image_path images/samples/0238
 <p align="center">
   <img src="https://github.com/dungnb1333/stanford-cars-classification/raw/master/images/demo.png">
 </p>
+
+## Transfer learning to other datasets
+
+from models import Car_Model<br />
+from config import CarConfig<br />
+from keras.layers import *<br />
+from keras.models import Model<br />
+network = 'ResNeXt101'<br />
+
+car = CarConfig()<br />
+car.update(network)<br />
+base_model = Car_Model(base_model_name = car.conf.network, size = car.conf.size, pool = car.conf.pool, class_nums = car.conf.class_nums)<br />
+base_model.load_weights('checkpoints/%s_weight_fold4.hdf5'%car.conf.network)<br />
+new_model = Model(inputs=Input(shape=(new_size, new_size, 3)), outputs=base_model.get_layer('dropout').output)<br />
+new_model.add(Dense(classes=10))<br />
+new_model.add(Activation('softmax'))<br />
+
+After that you will get a usual Keras model which you can train using .fit and .fit_generator methods.<br />
