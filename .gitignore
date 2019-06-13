@@ -1,0 +1,7 @@
+checkpoints
+data
+datasets/cars_test
+datasets/cars_train
+datasets/crop_test
+datasets/crop_train
+datasets/devkit
