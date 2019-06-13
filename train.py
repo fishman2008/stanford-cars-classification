@@ -1,5 +1,5 @@
 import argparse
-from models import Car_Model
+from models import Car_Model, batch_preprocess_input
 from config import CarConfig
 import pandas as pd
 import numpy as np
@@ -10,10 +10,8 @@ from tqdm import tqdm
 import imgaug as ia
 from imgaug import augmenters as iaa
 from clr_callback import CyclicLR
-import efficientnet
 from keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau, CSVLogger, Callback
 from keras.utils import Sequence
-from keras_applications import xception, vgg16, vgg19, resnet, resnet_v2, resnext, inception_v3, inception_resnet_v2, mobilenet, mobilenet_v2, densenet, nasnet
 import keras
 from keras.utils.np_utils import to_categorical
 from keras.optimizers import Adam
@@ -76,38 +74,6 @@ def mixup_data(x, y, alpha=1.0):
     mixed_x = lam * x + (1 - lam) * x[index_array]
     mixed_y = (lam * y) + ((1 - lam) * y[index_array])
     return mixed_x, mixed_y
-
-def batch_preprocess_input(x_batch, network):
-    if network == 'Xception':
-        x_batch = xception.preprocess_input(x_batch, backend = keras.backend, layers = keras.layers, models = keras.models, utils = keras.utils)
-    elif network == 'VGG16':
-        x_batch = vgg16.preprocess_input(x_batch, backend = keras.backend, layers = keras.layers, models = keras.models, utils = keras.utils)
-    elif network == 'VGG19':
-        x_batch = vgg19.preprocess_input(x_batch, backend = keras.backend, layers = keras.layers, models = keras.models, utils = keras.utils)
-    elif network == 'ResNet50' or network == 'ResNet101' or network == 'ResNet152':
-        x_batch = resnet.preprocess_input(x_batch, backend = keras.backend, layers = keras.layers, models = keras.models, utils = keras.utils)
-    elif network == 'ResNet50V2' or network == 'ResNet101V2' or network == 'ResNet152V2':
-        x_batch = resnet_v2.preprocess_input(x_batch, backend = keras.backend, layers = keras.layers, models = keras.models, utils = keras.utils)
-    elif network == 'ResNeXt50' or network == 'ResNeXt101':
-        x_batch = resnext.preprocess_input(x_batch, backend = keras.backend, layers = keras.layers, models = keras.models, utils = keras.utils)
-    elif network == 'InceptionV3':
-        x_batch = inception_v3.preprocess_input(x_batch, backend = keras.backend, layers = keras.layers, models = keras.models, utils = keras.utils)
-    elif network == 'InceptionResNetV2':
-        x_batch = inception_resnet_v2.preprocess_input(x_batch, backend = keras.backend, layers = keras.layers, models = keras.models, utils = keras.utils)
-    elif network == 'MobileNet':
-        x_batch = mobilenet.preprocess_input(x_batch, backend = keras.backend, layers = keras.layers, models = keras.models, utils = keras.utils)
-    elif network == 'MobileNetV2':
-        x_batch = mobilenet_v2.preprocess_input(x_batch, backend = keras.backend, layers = keras.layers, models = keras.models, utils = keras.utils)
-    elif network == 'DenseNet121' or network == 'DenseNet169' or network == 'DenseNet201':
-        x_batch = densenet.preprocess_input(x_batch, backend = keras.backend, layers = keras.layers, models = keras.models, utils = keras.utils)
-    elif network == 'NASNetMobile' or network == 'NASNetLarge':
-        x_batch = nasnet.preprocess_input(x_batch, backend = keras.backend, layers = keras.layers, models = keras.models, utils = keras.utils)
-    elif 'EfficientNet' in network:
-        x_batch = efficientnet.preprocess_input(x_batch)
-    else:
-        return None
-
-    return x_batch
 
 class TrainGenerator(Sequence):
     def __init__(self, conf, train_df, train_dict, batch_size):
