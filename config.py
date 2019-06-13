@@ -100,22 +100,22 @@ class CarConfig():
             self.conf.size = 380
             self.conf.tmp_size = int(1.25*self.conf.size)
             self.conf.pool = 'GlobalAveragePooling2D'
-            self.conf.batch_size = 1
+            self.conf.batch_size = 4
 
         if  self.conf.network == 'EfficientNetB5':
             self.conf.size = 456
             self.conf.tmp_size = int(1.25*self.conf.size)
             self.conf.pool = 'GlobalAveragePooling2D'
-            self.conf.batch_size = 1
+            self.conf.batch_size = 4
 
         if  self.conf.network == 'EfficientNetB6':
             self.conf.size = 528
             self.conf.tmp_size = int(1.25*self.conf.size)
             self.conf.pool = 'GlobalAveragePooling2D'
-            self.conf.batch_size = 1
+            self.conf.batch_size = 2
 
         if  self.conf.network == 'EfficientNetB7':
             self.conf.size = 600
             self.conf.tmp_size = int(1.25*self.conf.size)
             self.conf.pool = 'GlobalAveragePooling2D'
-            self.conf.batch_size = 1
+            self.conf.batch_size = 2
