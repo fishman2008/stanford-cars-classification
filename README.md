@@ -1,7 +1,7 @@
 # Stanford-cars classification
 
 In this repository, I'm making a cars classifier using the Stanford cars dataset, which contains 196 classes(including make and model). This repository also contains the checkpoint of 13 models trained on Stanford-cars dataset with high accuracy. You can use it as pretrained weights then transfer learning to other dataset.<br />
-Ensemble of some models in this repository can achieve accuracy [**0.9462**], higher accuracy than [state-of-the-art stanford cars 2018](https://paperswithcode.com/sota/fine-grained-image-classification-on-stanford) (**0.945**) and nearly [state-of-the-art image classification on stanford cars 2019](https://paperswithcode.com/sota/image-classification-on-stanford-cars) (**0.947**)
+Ensemble of some models in this repository can achieve accuracy **0.9462**, higher accuracy than [state-of-the-art stanford cars 2018](https://paperswithcode.com/sota/fine-grained-image-classification-on-stanford) **0.945** and nearly [state-of-the-art image classification on stanford cars 2019](https://paperswithcode.com/sota/image-classification-on-stanford-cars) **0.947**
 
 ## Environments
 - Ubuntu 16.04 LTS
