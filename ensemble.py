@@ -21,7 +21,6 @@ if __name__ == '__main__':
     xtest_ensemble = np.zeros((TEST_NUMS, car.conf.class_nums), dtype=np.float64)
     for mset, weight in models_and_weights.items():
         xtest_ensemble += weight*np.load('data/%s.npy'%mset)
-    xtest_ensemble /= float(car.conf.folds)
 
     ypredict = np.argmax(xtest_ensemble, axis=1) + 1
     submission_file = open('submission/Ensemble.txt', 'w')
