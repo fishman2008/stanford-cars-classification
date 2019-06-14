@@ -1,4 +1,4 @@
-img_path,prob,cls_id
+img_id,prob,cls_id
 datasets/external_dataset/coco/002509.jpg,0.86902094,196
 datasets/external_dataset/coco/000991.jpg,0.7215217,1
 datasets/external_dataset/coco/000721.jpg,0.72174096,82

@@ -30,6 +30,9 @@ Distribution of training set:
 </p>
 Min: 24 images/class , max: 68 images/class , mean: 41 images/class, so this dataset is quite balanced.<br /><br />
 
+Width: min 73 max 4156 mean 573 median 504
+Height: min 23 max 2648 mean 307 median 260
+
 Quick download datasets via command line:<br />
 $ **bash quick_download.sh**<br />
 Cross-validation 5 folds<br />

@@ -161,7 +161,7 @@ if __name__ == '__main__':
     external_df = external_df.loc[:, ['img_id', 'cls_id']]
     external_df['isExternal'] = np.ones(external_df.shape[0], dtype=np.uint8)
 
-    for fold in range(car.conf.folds):
+    for fold in range(2,3,1):
         valid_df = df.loc[df['fold'] == fold]
         train_df = df.loc[~df.index.isin(valid_df.index)]
         train_df = train_df.loc[:, ['img_id', 'cls_id']]
