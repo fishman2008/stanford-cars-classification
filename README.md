@@ -81,7 +81,7 @@ $ **python evaluate.py --network MobileNetV2 --gpu 0 --multi_crops True**<br />
 To generate submission for each model, run:<br />
 $ **python predict.py --network network --gpu gpu_id**
 
-Output is network.txt in folder [submission](https://github.com/dungnb1333/stanford-cars-classification/tree/master/submission) and raw output network.npy in folder [data](https://github.com/dungnb1333/stanford-cars-classification/tree/master/data)
+Output is network.txt in folder [submission](https://github.com/dungnb1333/stanford-cars-classification/tree/master/submission) and raw output network.npy in folder [data]
 
 You can summit your result at [stanford-cars evaluation server](http://imagenet.stanford.edu/internal/car196/submission/submission.php).
 
@@ -103,8 +103,10 @@ $ **python demo.py --network network --gpu gpu_id --image_path path --imshow Tru
 For example:<br />
 $ **python demo.py --network ResNeXt101 --gpu 0 --image_path images/samples/02381.jpg --imshow True**<br />
 
-## Guideline for source code in file docs/Solution for Stanford-cars classification.pdf
-
 <p align="center">
   <img src="https://github.com/dungnb1333/stanford-cars-classification/raw/master/images/demo.png">
 </p>
+
+## Guideline for source code
+
+File docs/Solution_for_StanfordCars_classification.pdf
