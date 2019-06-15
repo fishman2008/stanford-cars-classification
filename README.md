@@ -30,9 +30,6 @@ Distribution of training set:
 </p>
 Min: 24 images/class , max: 68 images/class , mean: 41 images/class, so this dataset is quite balanced.<br /><br />
 
-Width: min 73 max 4156 mean 573 median 504
-Height: min 23 max 2648 mean 307 median 260
-
 Quick download datasets via command line:<br />
 $ **bash quick_download.sh**<br />
 Cross-validation 5 folds<br />
@@ -71,7 +68,7 @@ Download checkpoint of 13 models in [link](https://www.dropbox.com/sh/jv7dbd5ksj
 
 ## Evaluate models:
 
-To enhance the result, I applied 12 crops for validation and test prediction, accuracy of single model is ensemble of 12 crops and 5 folds. For example with input shape of network is 224x224x3:<br />
+To enhance the result, I applied 12 crops for validation and test prediction. Accuracy of single model is ensemble of 12 crops and 5 folds. For example with input shape of network is 224x224x3:<br />
 <p align="center">
   <img src="https://github.com/dungnb1333/stanford-cars-classification/raw/master/images/12crops.png">
 </p>
@@ -105,6 +102,8 @@ I just tried a few cases, you can try with other ratios and other models to get 
 $ **python demo.py --network network --gpu gpu_id --image_path path --imshow True/False**<br />
 For example:<br />
 $ **python demo.py --network ResNeXt101 --gpu 0 --image_path images/samples/02381.jpg --imshow True**<br />
+
+## Guideline for source code in file docs/Solution for Stanford-cars classification.pdf
 
 <p align="center">
   <img src="https://github.com/dungnb1333/stanford-cars-classification/raw/master/images/demo.png">

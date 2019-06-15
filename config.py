@@ -3,6 +3,7 @@ from easydict import EasyDict as edict
 class CarConfig():
     def __init__(self):
         self.conf = edict()
+        self.conf.TEST_NUMS = 8041
         self.conf.class_nums = 196
         self.conf.folds = 5
         self.conf.train_dir = 'datasets/cars_train'

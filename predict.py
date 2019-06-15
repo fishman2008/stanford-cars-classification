@@ -11,8 +11,6 @@ from keras.utils import Sequence
 import keras
 from keras.models import *
 
-TEST_NUMS = 8041
-
 class PredictGenerator(Sequence):
     def __init__(self, conf, number_of_images, dict, batch_size, augtype):
         self.conf = conf
@@ -66,6 +64,8 @@ if __name__ == '__main__':
 
     car = CarConfig()
     car.update(args.network)
+
+    TEST_NUMS = car.conf.TEST_NUMS
 
     model = Car_Model(base_model_name = car.conf.network, size = car.conf.size, pool = car.conf.pool, class_nums = car.conf.class_nums)
 
