@@ -109,4 +109,4 @@ $ **python demo.py --network ResNeXt101 --gpu 0 --image_path images/samples/0238
 
 ## Guideline for source code
 
-File docs/Solution_for_StanfordCars_classification.pdf
+Please read file [docs/Solution_for_StanfordCars_classification.pdf](https://github.com/dungnb1333/stanford-cars-classification/raw/master/docs/Solution_for_StanfordCars_classification.pdf)
